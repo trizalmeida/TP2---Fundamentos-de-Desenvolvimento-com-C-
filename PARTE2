@@ -1,0 +1,67 @@
+// Exercício 4: Formulário de Cadastro Simples
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite seu nome: ");
+        string nome = Console.ReadLine();
+
+        Console.Write("Digite sua idade: ");
+        int idade;
+        while (!int.TryParse(Console.ReadLine(), out idade) || idade < 0)
+        {
+            Console.Write("Idade inválida. Digite novamente: ");
+        }
+
+        Console.Write("Digite seu telefone: ");
+        string telefone = Console.ReadLine();
+
+        Console.Write("Digite seu e-mail: ");
+        string email = Console.ReadLine();
+
+        Console.WriteLine("\n--- Cadastro Realizado com Sucesso ---");
+        Console.WriteLine($"Nome: {nome}");
+        Console.WriteLine($"Idade: {idade} anos");
+        Console.WriteLine($"Telefone: {telefone}");
+        Console.WriteLine($"E-mail: {email}");
+    }
+}
+
+// Exercício 5: Conversor de Temperatura
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite a temperatura em Celsius: ");
+        double celsius = double.Parse(Console.ReadLine());
+
+        double fahrenheit = celsius * 9 / 5 + 32;
+        double kelvin = celsius + 273.15;
+
+        Console.WriteLine($"Temperatura em Fahrenheit: {fahrenheit:F2}°F");
+        Console.WriteLine($"Temperatura em Kelvin: {kelvin:F2}K");
+    }
+}
+
+// Exercício 6: Cálculo de IMC
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite seu peso (kg): ");
+        double peso = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite sua altura (m): ");
+        double altura = double.Parse(Console.ReadLine());
+
+        double imc = peso / (altura * altura);
+
+        Console.WriteLine($"Seu IMC é {imc:F2}");
+    }
+}
