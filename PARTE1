@@ -1,0 +1,110 @@
+// Exercício 1: Cálculo de Idade Precisa
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite sua data de nascimento (dd/mm/aaaa): ");
+        DateTime dataNascimento;
+        
+        while (!DateTime.TryParse(Console.ReadLine(), out dataNascimento))
+        {
+            Console.Write("Data inválida. Digite novamente (dd/mm/aaaa): ");
+        }
+
+        DateTime hoje = DateTime.Today;
+        int anos = hoje.Year - dataNascimento.Year;
+        int meses = hoje.Month - dataNascimento.Month;
+        int dias = hoje.Day - dataNascimento.Day;
+
+        if (dias < 0)
+        {
+            meses--;
+            dias += DateTime.DaysInMonth(hoje.Year, hoje.Month == 1 ? 12 : hoje.Month - 1);
+        }
+        if (meses < 0)
+        {
+            anos--;
+            meses += 12;
+        }
+
+        Console.WriteLine($"Você tem {anos} anos, {meses} meses e {dias} dias.");
+    }
+}
+
+// Exercício 2: Dias até o Próximo Aniversário
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite sua data de nascimento (dd/mm/aaaa): ");
+        DateTime dataNascimento;
+
+        while (!DateTime.TryParse(Console.ReadLine(), out dataNascimento))
+        {
+            Console.Write("Data inválida. Digite novamente (dd/mm/aaaa): ");
+        }
+
+        DateTime hoje = DateTime.Today;
+        DateTime proximoAniversario = new DateTime(hoje.Year, dataNascimento.Month, dataNascimento.Day);
+
+        if (proximoAniversario < hoje)
+        {
+            proximoAniversario = proximoAniversario.AddYears(1);
+        }
+
+        int diasRestantes = (proximoAniversario - hoje).Days;
+
+        Console.WriteLine($"Faltam {diasRestantes} dias para o seu próximo aniversário.");
+    }
+}
+
+// Exercício 3: Diferença Entre Duas Datas
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite a primeira data (dd/mm/aaaa): ");
+        DateTime data1;
+        while (!DateTime.TryParse(Console.ReadLine(), out data1))
+        {
+            Console.Write("Data inválida. Digite novamente (dd/mm/aaaa): ");
+        }
+
+        Console.Write("Digite a segunda data (dd/mm/aaaa): ");
+        DateTime data2;
+        while (!DateTime.TryParse(Console.ReadLine(), out data2))
+        {
+            Console.Write("Data inválida. Digite novamente (dd/mm/aaaa): ");
+        }
+
+        if (data1 > data2)
+        {
+            DateTime temp = data1;
+            data1 = data2;
+            data2 = temp;
+        }
+
+        int anos = data2.Year - data1.Year;
+        int meses = data2.Month - data1.Month;
+        int dias = data2.Day - data1.Day;
+
+        if (dias < 0)
+        {
+            meses--;
+            dias += DateTime.DaysInMonth(data2.Year, data2.Month == 1 ? 12 : data2.Month - 1);
+        }
+        if (meses < 0)
+        {
+            anos--;
+            meses += 12;
+        }
+
+        Console.WriteLine($"A diferença entre as datas é de {anos} anos, {meses} meses e {dias} dias.");
+    }
+}
