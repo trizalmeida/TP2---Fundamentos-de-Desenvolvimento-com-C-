@@ -1,0 +1,68 @@
+// Exercício 7: Verificador de Número Par ou Ímpar
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite um número inteiro: ");
+        int numero = int.Parse(Console.ReadLine());
+
+        if (numero % 2 == 0)
+            Console.WriteLine("O número é PAR.");
+        else
+            Console.WriteLine("O número é ÍMPAR.");
+    }
+}
+
+// Exercício 8: Classificação de Nota Escolar
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite a nota (0 a 10): ");
+        double nota = double.Parse(Console.ReadLine());
+
+        string classificacao;
+
+        if (nota < 4)
+            classificacao = "Insuficiente";
+        else if (nota < 7)
+            classificacao = "Regular";
+        else if (nota < 9)
+            classificacao = "Bom";
+        else
+            classificacao = "Excelente";
+
+        Console.WriteLine($"Classificação: {classificacao}");
+    }
+}
+
+// Exercício 9: Calculadora de Salário Líquido
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite o salário bruto: ");
+        double salarioBruto = double.Parse(Console.ReadLine());
+
+        double desconto;
+
+        if (salarioBruto <= 1500)
+            desconto = salarioBruto * 0.05;
+        else if (salarioBruto <= 3000)
+            desconto = salarioBruto * 0.10;
+        else
+            desconto = salarioBruto * 0.15;
+
+        double salarioLiquido = salarioBruto - desconto;
+
+        Console.WriteLine($"Salário Bruto: R${salarioBruto:F2}");
+        Console.WriteLine($"Desconto: R${desconto:F2}");
+        Console.WriteLine($"Salário Líquido: R${salarioLiquido:F2}");
+    }
+}
