@@ -1,0 +1,67 @@
+// Exercício 10: Contagem Regressiva
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite um número: ");
+        int numero = int.Parse(Console.ReadLine());
+
+        Console.Write("Contagem regressiva: ");
+        for (int i = numero; i >= 0; i--)
+        {
+            Console.Write(i);
+            if (i > 0)
+                Console.Write(", ");
+        }
+    }
+}
+
+// Exercício 11: Tabuada Interativa
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite um número para ver a tabuada: ");
+        int numero = int.Parse(Console.ReadLine());
+
+        Console.WriteLine($"\nTabuada do {numero}:");
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.WriteLine($"{numero} x {i} = {numero * i}");
+        }
+    }
+}
+
+// Exercício 12: Jogo de Adivinhação
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random random = new Random();
+        int numeroSecreto = random.Next(1, 101);
+        int palpite = 0;
+        int tentativas = 0;
+
+        Console.WriteLine("Tente adivinhar o número (de 1 a 100):");
+
+        while (palpite != numeroSecreto)
+        {
+            Console.Write("Digite seu palpite: ");
+            palpite = int.Parse(Console.ReadLine());
+            tentativas++;
+
+            if (palpite < numeroSecreto)
+                Console.WriteLine("O número é maior!");
+            else if (palpite > numeroSecreto)
+                Console.WriteLine("O número é menor!");
+        }
+
+        Console.WriteLine($"Parabéns! Você acertou o número {numeroSecreto} em {tentativas} tentativas.");
+    }
+}
